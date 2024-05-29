@@ -20,7 +20,7 @@ const TicketForm: React.FC = () => {
     const totalAmount: number = quantity * pricePerTicket;
 
     return (
-        <div className="px-36 py-32">
+        <div>
             <h2>Compra de Boletos</h2>
             <p>Cantidad de boletos</p>
             <div>

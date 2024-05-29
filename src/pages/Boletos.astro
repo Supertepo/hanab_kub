@@ -5,5 +5,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Hunab Kub-Compra de boletos">
-    <TicketForm client:visible />
+  <SectionContainer class="py-44 px-32">
+    <TicketForm client:load />
+  </SectionContainer>
 </Layout>
