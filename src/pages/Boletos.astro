@@ -1,16 +1,11 @@
 ---
+import SectionContainer from "../components/SectionContainer.astro";
 import TicketForm from "../components/TicketForm.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Hunab Kub-Compra de boletos">
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <TicketForm client:visible/>
+  <SectionContainer class="py-44 px-32">
+    <TicketForm client:visible />
+  </SectionContainer>
 </Layout>
