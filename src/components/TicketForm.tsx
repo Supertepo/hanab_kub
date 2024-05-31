@@ -90,117 +90,282 @@ const TicketForm: React.FC = () => {
     quantityVIPMenor * TicketVIPMenor +
     quantityMembresia * Membresia;
   return (
-    <div className="max-w-xs mx-auto">
-      <h2>Compra de Boletos</h2>
-      <div>
-        <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
-          Cantidad de boletos Adulto
-        </p>
-        <div className="relative flex items-center max-w-[8rem]">
-          <button
-            onClick={decrementQuantityAdulto}
-            className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
-          >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 2"
+    <div className="max-w-max mx-auto">
+      <h2 className="text-center">Compra de Boletos</h2>
+      <br />
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4">
+        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900 text-center">
+            Cantidad de boletos Adulto
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={decrementQuantityAdulto}
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h16"
-              />
-            </svg>
-          </button>
-          <input
-            type="text"
-            min="0"
-            value={quantityAdulto}
-            onChange={handleQuantityAdultoChange}
-            className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
-          />
-          <button
-            onClick={incrementQuantityAdulto}
-            className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
-          >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 18"
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              value={quantityAdulto}
+              onChange={handleQuantityAdultoChange}
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={incrementQuantityAdulto}
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 1v16M1 9h16"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
+            Cantidad de boletos Menor
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={decrementQuantityMenor}
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              value={quantityMenor}
+              onChange={handleQuantityMenorChange}
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={incrementQuantityMenor}
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
+            Cantidad de boletos VIP
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={decrementQuantityVIP}
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              value={quantityVIP}
+              onChange={handleQuantityVIPChange}
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={incrementQuantityVIP}
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
+            Cantidad de boletos VIP Menor
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={decrementQuantityVIPMenor}
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              value={quantityVIPMenor}
+              onChange={handleQuantityVIPMenorChange}
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={incrementQuantityVIPMenor}
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
+            Cantidad de boletos Membresia
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={decrementQuantityMembresia}
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              value={quantityMembresia}
+              onChange={handleQuantityMembresiaChange}
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={incrementQuantityMembresia}
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-      <div>
-        <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
-          Cantidad de boletos Menor
-        </p>
-        <div className="relative flex items-center max-w-[8rem]">
-          <button
-            onClick={decrementQuantityMenor}
-            className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
-          >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 2"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h16"
-              />
-            </svg>
-          </button>
-          <input
-            type="text"
-            min="0"
-            value={quantityMenor}
-            onChange={handleQuantityMenorChange}
-            className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
-          />
-          <button
-            onClick={incrementQuantityMenor}
-            className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
-          >
-            <svg
-              className="w-3 h-3 text-gray-900 dark:text-white"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 18 18"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 1v16M1 9h16"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
-      <p>Total a Pagar: ${totalAmount}</p>
+      <p className="text text-center">Total a Pagar: ${totalAmount}</p>
     </div>
   );
 };
