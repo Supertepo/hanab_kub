@@ -94,7 +94,7 @@ const TicketForm: React.FC = () => {
       <h2 className="text-center">Compra de Boletos</h2>
       <br />
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-4">
-        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+        <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900 text-center">
             Cantidad de boletos Adulto
           </p>
@@ -148,7 +148,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+        <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos Menor
           </p>
@@ -202,7 +202,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+        <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos VIP
           </p>
@@ -256,7 +256,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+        <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos VIP Menor
           </p>
@@ -310,7 +310,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="border-4 dark:bg-[#4592b3] dark:border-[#4592b3] rounded-lg p-4">
+        <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos Membresia
           </p>
