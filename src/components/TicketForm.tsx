@@ -16,71 +16,26 @@ const TicketForm: React.FC = () => {
   const [quantityMembresia, setQuantityMembresia] = useState<number>(0);
   const Membresia: number = 950;
 
-  const handleQuantityAdultoChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+  const handleQuantityChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    setQuantity: React.Dispatch<React.SetStateAction<number>>
   ) => {
-    setQuantityAdulto(parseInt(e.target.value, 10));
+    const value = parseInt(e.target.value, 10);
+    setQuantity(Math.min(Math.max(value, 0), 8));
   };
-  const handleQuantityMenorChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+
+  const incrementQuantity = (
+    quantity: number,
+    setQuantity: React.Dispatch<React.SetStateAction<number>>
   ) => {
-    setQuantityMenor(parseInt(e.target.value, 10));
-  };
-  const handleQuantityVIPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuantityVIP(parseInt(e.target.value, 10));
+    setQuantity(Math.min(quantity + 1, 8));
   };
 
-  const handleQuantityVIPMenorChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+  const decrementQuantity = (
+    quantity: number,
+    setQuantity: React.Dispatch<React.SetStateAction<number>>
   ) => {
-    setQuantityVIPMenor(parseInt(e.target.value, 10));
-  };
-
-  const handleQuantityMembresiaChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setQuantityMembresia(parseInt(e.target.value, 10));
-  };
-
-  //Cantidad 1
-  const incrementQuantityAdulto = () => {
-    setQuantityAdulto(quantityAdulto + 1);
-  };
-
-  const decrementQuantityAdulto = () => {
-    setQuantityAdulto(quantityAdulto - 1 < 0 ? 0 : quantityAdulto - 1);
-  };
-  //Cantidad 2
-  const incrementQuantityMenor = () => {
-    setQuantityMenor(quantityMenor + 1);
-  };
-
-  const decrementQuantityMenor = () => {
-    setQuantityMenor(quantityMenor - 1 < 0 ? 0 : quantityMenor - 1);
-  };
-  //Cantidad 3
-  const incrementQuantityVIP = () => {
-    setQuantityVIP(quantityVIP + 1);
-  };
-
-  const decrementQuantityVIP = () => {
-    setQuantityVIP(quantityVIP - 1 < 0 ? 0 : quantityVIP - 1);
-  };
-  //Cantidad 4
-  const incrementQuantityVIPMenor = () => {
-    setQuantityVIPMenor(quantityVIPMenor + 1);
-  };
-
-  const decrementQuantityVIPMenor = () => {
-    setQuantityVIPMenor(quantityVIPMenor - 1 < 0 ? 0 : quantityVIPMenor - 1);
-  };
-  //Cantidad 5
-  const incrementQuantityMembresia = () => {
-    setQuantityMembresia(quantityMembresia + 1);
-  };
-
-  const decrementQuantityMembresia = () => {
-    setQuantityMembresia(quantityMembresia - 1 < 0 ? 0 : quantityMembresia - 1);
+    setQuantity(Math.max(quantity - 1, 0));
   };
 
   const totalAmount: number =
@@ -89,6 +44,7 @@ const TicketForm: React.FC = () => {
     quantityVIP * TicketVIP +
     quantityVIPMenor * TicketVIPMenor +
     quantityMembresia * Membresia;
+
   return (
     <div className="max-w-max mx-auto">
       <h2 className="text-center">Compra de Boletos</h2>
@@ -119,7 +75,9 @@ const TicketForm: React.FC = () => {
           </p>
           <div className="relative flex items-center">
             <button
-              onClick={decrementQuantityAdulto}
+              onClick={() =>
+                decrementQuantity(quantityAdulto, setQuantityAdulto)
+              }
               className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -141,12 +99,15 @@ const TicketForm: React.FC = () => {
             <input
               type="text"
               min="0"
+              max="8"
               value={quantityAdulto}
-              onChange={handleQuantityAdultoChange}
+              onChange={(e) => handleQuantityChange(e, setQuantityAdulto)}
               className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
             />
             <button
-              onClick={incrementQuantityAdulto}
+              onClick={() =>
+                incrementQuantity(quantityAdulto, setQuantityAdulto)
+              }
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -173,7 +134,7 @@ const TicketForm: React.FC = () => {
           </p>
           <div className="relative flex items-center">
             <button
-              onClick={decrementQuantityMenor}
+              onClick={() => decrementQuantity(quantityMenor, setQuantityMenor)}
               className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -195,12 +156,13 @@ const TicketForm: React.FC = () => {
             <input
               type="text"
               min="0"
+              max="8"
               value={quantityMenor}
-              onChange={handleQuantityMenorChange}
+              onChange={(e) => handleQuantityChange(e, setQuantityMenor)}
               className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
             />
             <button
-              onClick={incrementQuantityMenor}
+              onClick={() => incrementQuantity(quantityMenor, setQuantityMenor)}
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -227,7 +189,7 @@ const TicketForm: React.FC = () => {
           </p>
           <div className="relative flex items-center">
             <button
-              onClick={decrementQuantityVIP}
+              onClick={() => decrementQuantity(quantityVIP, setQuantityVIP)}
               className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -249,12 +211,13 @@ const TicketForm: React.FC = () => {
             <input
               type="text"
               min="0"
+              max="8"
               value={quantityVIP}
-              onChange={handleQuantityVIPChange}
+              onChange={(e) => handleQuantityChange(e, setQuantityVIP)}
               className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
             />
             <button
-              onClick={incrementQuantityVIP}
+              onClick={() => incrementQuantity(quantityVIP, setQuantityVIP)}
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -281,7 +244,9 @@ const TicketForm: React.FC = () => {
           </p>
           <div className="relative flex items-center">
             <button
-              onClick={decrementQuantityVIPMenor}
+              onClick={() =>
+                decrementQuantity(quantityVIPMenor, setQuantityVIPMenor)
+              }
               className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -303,12 +268,15 @@ const TicketForm: React.FC = () => {
             <input
               type="text"
               min="0"
+              max="8"
               value={quantityVIPMenor}
-              onChange={handleQuantityVIPMenorChange}
+              onChange={(e) => handleQuantityChange(e, setQuantityVIPMenor)}
               className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
             />
             <button
-              onClick={incrementQuantityVIPMenor}
+              onClick={() =>
+                incrementQuantity(quantityVIPMenor, setQuantityVIPMenor)
+              }
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -331,11 +299,13 @@ const TicketForm: React.FC = () => {
         </div>
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
-            Cantidad de boletos Membresia
+            Membresías
           </p>
           <div className="relative flex items-center">
             <button
-              onClick={decrementQuantityMembresia}
+              onClick={() =>
+                decrementQuantity(quantityMembresia, setQuantityMembresia)
+              }
               className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -357,12 +327,15 @@ const TicketForm: React.FC = () => {
             <input
               type="text"
               min="0"
+              max="8"
               value={quantityMembresia}
-              onChange={handleQuantityMembresiaChange}
+              onChange={(e) => handleQuantityChange(e, setQuantityMembresia)}
               className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
             />
             <button
-              onClick={incrementQuantityMembresia}
+              onClick={() =>
+                incrementQuantity(quantityMembresia, setQuantityMembresia)
+              }
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
               <svg
@@ -384,7 +357,20 @@ const TicketForm: React.FC = () => {
           </div>
         </div>
       </div>
-      <p className="text text-center">Total a Pagar: ${totalAmount}</p>
+      <br />
+      <div className="grid grid-cols-4 justify-center">
+        <label className="col-start-2 border-x-0 h-12 w-auto text-center rounded-l-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white">
+          Total de la compra:
+        </label>
+        <input
+          type="text"
+          id="input-group-1"
+          className="border-x-0 h-12 w-auto text-center rounded-r-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+          placeholder="Precio"
+          readOnly
+          value={totalAmount}
+        />
+      </div>
     </div>
   );
 };
