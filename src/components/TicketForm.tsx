@@ -1,4 +1,5 @@
 import { useState } from "react";
+import jsPDF from "jspdf";
 
 const TicketForm: React.FC = () => {
   const [quantityAdulto, setQuantityAdulto] = useState<number>(0);
@@ -15,6 +16,8 @@ const TicketForm: React.FC = () => {
 
   const [quantityMembresia, setQuantityMembresia] = useState<number>(0);
   const Membresia: number = 950;
+
+  const [fecha, setFecha] = useState<string>("");
 
   const handleQuantityChange = (
     e: React.ChangeEvent<HTMLInputElement>,
@@ -45,6 +48,36 @@ const TicketForm: React.FC = () => {
     quantityVIPMenor * TicketVIPMenor +
     quantityMembresia * Membresia;
 
+  const handleConfirmPurchase = () => {
+    if (!fecha) {
+      alert("Por favor, selecciona una fecha.");
+      return;
+    }
+
+    const doc = new jsPDF();
+    doc.text("Reservacion", 20, 10);
+    doc.setFont("times", "italic");
+    doc.text(`Fecha de reservacion: ${fecha}`, 20, 20);
+    if (quantityAdulto !== 0) {
+      doc.text(`Cantidad de boletos de adulto: ${quantityAdulto}`, 20, 30);
+    }
+    if (quantityMenor !== 0) {
+      doc.text(`Cantidad de boletos de menor: ${quantityMenor}`, 20, 40);
+    }
+    if (quantityVIP !== 0) {
+      doc.text(`Cantidad de boletos VIP: ${quantityVIP}`, 20, 50);
+    }
+    if (quantityVIPMenor !== 0) {
+      doc.text(`Cantidad de boletos VIP Menor: ${quantityVIPMenor}`, 20, 60);
+    }
+    if (quantityMembresia !== 0) {
+      doc.text(`Cantidad de membresias: ${quantityMembresia}`, 20, 70);
+    }
+    doc.text(`Total: $${totalAmount}`, 150, 80);
+    doc.save("compra.pdf");
+    alert("Reservacion confirmada. Generando PDF...");
+  };
+
   return (
     <div className="max-w-max mx-auto">
       <h2 className="text-center">Compra de Boletos</h2>
@@ -62,13 +95,16 @@ const TicketForm: React.FC = () => {
         </div>
         <input
           type="date"
-          className="bg-teal-50 borde border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-teal-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="bg-teal-50 borde border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-teal-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Select date"
+          value={fecha}
+          onChange={(e) => setFecha(e.target.value)}
         />
       </div>
-
       <br />
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-x-8 gap-y-4">
+        {/* Repeat the ticket input sections for each ticket type */}
+        {/* Ticket Adulto */}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900 text-center">
             Cantidad de boletos Adulto
@@ -128,6 +164,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
+        {/* Repeat for other ticket types */}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos Menor
@@ -183,6 +220,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
+        {/* Ticket VIP */}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos VIP
@@ -238,6 +276,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
+        {/* Ticket VIP Menor */}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Cantidad de boletos VIP Menor
@@ -297,9 +336,10 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
+        {/* Membresia */}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
-            Membresías
+            Membresia
           </p>
           <div className="relative flex items-center">
             <button
@@ -358,18 +398,16 @@ const TicketForm: React.FC = () => {
         </div>
       </div>
       <br />
-      <div className="grid grid-cols-4 justify-center">
-        <label className="col-start-2 border-x-0 h-12 w-auto text-center rounded-l-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white">
-          Total de la compra:
-        </label>
-        <input
-          type="text"
-          id="input-group-1"
-          className="border-x-0 h-12 w-auto text-center rounded-r-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
-          placeholder="Precio"
-          readOnly
-          value={totalAmount}
-        />
+      <div className="grid gap-2 place-content-center">
+        <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-center">
+          Monto total: ${totalAmount}
+        </div>
+        <button
+          onClick={handleConfirmPurchase}
+          className="bg-teal-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 dark:bg-teal-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        >
+          Confirmar reservacion
+        </button>
       </div>
     </div>
   );
