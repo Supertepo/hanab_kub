@@ -8,15 +8,15 @@ const { Nombre, Descripcion, imagen } = Astro.props;
 ---
 
 <div
-  class="max-w-sm mx-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 col-span-1"
+  class="md:max-w-sm md:mx-8 "
 >
-<img src={imagen} alt="" class="size-22 md:size-auto rounded-t-lg" />
+<img src={imagen} alt="" class="w-full md:size-auto" />
 <h3
-  class="mb-2 text-2xl font-bold tracking-tight text-balance max-w-[700px] text-black dark:text-yellow-200/90"
+  class="mb-2 text-2xl font-bold dark:text-yellow-200/90"
 >
   {Nombre}
 </h3>
-  <span class="mb-3 font-normal text-balance max-w-[700px] text-black dark:text-white"
+  <span class="dark:text-white"
     >{Descripcion}</span
   >
 </div>
