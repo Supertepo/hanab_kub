@@ -17,9 +17,37 @@ const Aztecas = [
   {
     Nombre: "Coyolxauhqui",
     Descripcion: "Rueda de la fortuna",
-    imagen: "/Atracciones/Tonatiuh.jpg",
+    imagen: "/Atracciones/Coyolxauhqui.jpg",
   },
 ];
+const Mayas = [
+  {
+    Nombre: "Itzamna",
+    Descripcion: "Torre de sillas",
+    imagen: "/Atracciones/Itzamna.jpg",
+  },
+  {
+    Nombre: "Cháak",
+    Descripcion: "Recorrido para refrescarte",
+    imagen: "/Atracciones/Cháak.jpg",
+  },
+  {
+    Nombre: "Kauil",
+    Descripcion: "Montaña rusa con temática de fuego",
+    imagen: "/Atracciones/Kauil.jpg",
+  }, {
+    Nombre: "Buluc Chabtan",
+    Descripcion: "Carritos Chocones",
+    imagen: "/Atracciones/Buluc_Chabtan.jpg",
+  },
+];
+const Mexicas = [
+  {
+    Nombre: "Huitzilopochtli",
+    Descripcion: "montaña rusa rápida",
+    imagen:"/Atracciones/Huitzilopochtli.jpg",
+  },
+]
 ---
 
 <Layout title="Hunab Ku-Vive la aventura en cada giro">
@@ -28,12 +56,28 @@ const Aztecas = [
   >
     Atracciones
   </h1>
-  <SectionContainer class="py-10 px-44">
-    <h2
-      class="text-xl lg:text-2xl text-balance max-w-[700px] text-black dark:text-white"
-    >
-      Aztecas
-    </h2>
+  <h2
+    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+  >
+    Aztecas
+  </h2>
+  <SectionContainer class="py-10 px-44 flex grid-cols-1 md:grid-cols-3">
     {Aztecas.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
+  <h2
+    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+  >
+    Mayas
+  </h2>
+  <SectionContainer class="py-10 px-44 flex grid-cols-1 md:grid-cols-3">
+    {Mayas.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
+  <h2
+    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+  >
+    Mexicas
+  </h2>
+  <SectionContainer class="py-10 px-44 flex grid-cols-1 md:grid-cols-3">
+    {Mexicas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
 </Layout>
