@@ -1,0 +1,22 @@
+---
+interface Props{
+    Nombre: string;
+    Descripcion: string;
+    imagen: string;
+}
+const { Nombre, Descripcion, imagen } = Astro.props;
+---
+
+<div
+  class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+>
+<img src={imagen} alt="" class="size-auto rounded-t-lg" />
+<h3
+  class="mb-2 text-2xl font-bold tracking-tight text-balance max-w-[700px] text-black dark:text-yellow-200/90"
+>
+  {Nombre}
+</h3>
+  <span class="mb-3 font-normal text-balance max-w-[700px] text-black dark:text-white"
+    >{Descripcion}</span
+  >
+</div>

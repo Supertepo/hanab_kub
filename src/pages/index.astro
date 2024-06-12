@@ -1,15 +1,39 @@
 ---
-import SectionContainer from '../components/SectionContainer.astro';
-import Layout from '../layouts/Layout.astro';
+import Atraccion from "../components/Atraccion.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Layout from "../layouts/Layout.astro";
+
+const Aztecas = [
+  {
+    Nombre: "Mictlantecuhtli",
+    Descripcion: "Recorrido por el infierno",
+    imagen: "/Atracciones/Mictlantecuhtli.jpg",
+  },
+  {
+    Nombre: "Tonatiuh",
+    Descripcion: "Mirador",
+    imagen: "/Atracciones/Tonatiuh.jpg",
+  },
+  {
+    Nombre: "Coyolxauhqui",
+    Descripcion: "Rueda de la fortuna",
+    imagen: "/Atracciones/Tonatiuh.jpg",
+  },
+];
 ---
 
 <Layout title="Hunab Ku-Vive la aventura en cada giro">
-	<SectionContainer class="py-44 px-28">
-	<div>
-		<h2>
-			Tipo de Boletos 
-		</h2>
-	</div>
-</SectionContainer>
+  <h1
+    class="dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 pt-44 px-28 lg:pb-10"
+  >
+    Atracciones
+  </h1>
+  <SectionContainer class="py-10 px-44">
+    <h2
+      class="text-xl lg:text-2xl text-balance max-w-[700px] text-black dark:text-white"
+    >
+      Aztecas
+    </h2>
+    {Aztecas.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
 </Layout>
-
