@@ -35,7 +35,8 @@ const Mayas = [
     Nombre: "Kauil",
     Descripcion: "Montaña rusa con temática de fuego",
     imagen: "/Atracciones/Kauil.jpg",
-  }, {
+  },
+  {
     Nombre: "Buluc Chabtan",
     Descripcion: "Carritos Chocones",
     imagen: "/Atracciones/Buluc_Chabtan.jpg",
@@ -45,52 +46,89 @@ const Mexicas = [
   {
     Nombre: "Huitzilopochtli",
     Descripcion: "montaña rusa rápida",
-    imagen:"/Atracciones/Huitzilopochtli.jpg",
-  },{
+    imagen: "/Atracciones/Huitzilopochtli.jpg",
+  },
+  {
     Nombre: "Xipe totec",
     Descripcion: "",
-    imagen:"/Atracciones/Xipe_Totec.jpg",
-  },{
+    imagen: "/Atracciones/Xipe_Totec.jpg",
+  },
+  {
     Nombre: "Coatlicue",
     Descripcion: "Canoa forma de madre",
-    imagen:"/Atracciones/Coatlicue.jpg",
-  },{
+    imagen: "/Atracciones/Coatlicue.jpg",
+  },
+  {
     Nombre: "Huehuecóyotl",
     Descripcion: "tipo tasas musicales",
-    imagen:"/Atracciones/Huehuecóyotl.jpg",
+    imagen: "/Atracciones/Huehuecóyotl.jpg",
   },
-
-]
+];
+const Tolteca = [
+  {
+    Nombre: "Quetzalcoatl",
+    Descripcion: "Montaña tusarusa",
+    imagen: "/Atracciones/Quetzalcoatl.jpg",
+  },
+  {
+    Nombre: "Itztlacoliuhqui",
+    Descripcion: "Recorrido por una ciudad fria",
+    imagen: "/Atracciones/Itztlacoliuhqui.jpg",
+  },
+];
+const Nahualt = [
+  {
+    Nombre: "Tláloc",
+    Descripcion: "Rio con cascada",
+    imagen: "/Atracciones/Tlaloc.jpg",
+  },
+];
 ---
 
 <Layout title="Hunab Ku-Vive la aventura en cada giro">
   <h1
-    class="dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 pt-44 px-28 lg:pb-10"
+    class="dark:text-white text-center text-3xl md:text-4xl lg:text-5xl font-bold pb-6 pt-44 px-28 lg:pb-10"
   >
     Atracciones
   </h1>
   <h2
-    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+    class="text-2xl text-center px-28 text-black dark:text-white"
   >
     Aztecas
   </h2>
-  <SectionContainer class="py-10 px-44 grid md:flex md:grid-cols-3">
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Aztecas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
   <h2
-    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+    class="text-2xl text-center px-28 text-black dark:text-white"
   >
     Mayas
   </h2>
-  <SectionContainer class="py-10 px-44 grid md:flex md:grid-cols-3">
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Mayas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
   <h2
-    class="text-xl lg:text-2xl text-balance max-w-[700px] px-28 text-black dark:text-white"
+    class="text-2xl text-center px-28 text-black dark:text-white"
   >
     Mexicas
   </h2>
-  <SectionContainer class="py-10 px-44 grid md:flex md:grid-cols-3">
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Mexicas.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
+  <h2
+    class="text-2xl text-center px-28 text-black dark:text-white"
+  >
+    Tolteca
+  </h2>
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+    {Tolteca.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
+  <h2
+    class="text-2xl text-center px-28 text-black dark:text-white"
+  >
+    Nahualt
+  </h2>
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+    {Nahualt.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
 </Layout>
