@@ -83,6 +83,27 @@ const Nahualt = [
     imagen: "/Atracciones/Tlaloc.jpg",
   },
 ];
+const Otros = [
+  {
+    Nombre: "Tren",
+    Descripcion: "Tren para recorrido",
+    imagen: "/Atracciones/Tren.jpg",
+  },
+  {
+    Nombre: "Escenario",
+    Descripcion: "Escenario para eventos varios",
+    imagen: "/Atracciones/Escenario.jpg",
+  }, {
+    Nombre: "Museo",
+    Descripcion: "Museo sobre la cultura ",
+    imagen: "/Atracciones/Museo.jpg",
+  },
+  {
+    Nombre: "Juego de pelota",
+    Descripcion: "Representacion del juego de pelota ",
+    imagen: "/Atracciones/Juego.jpg",
+  },
+];
 ---
 
 <Layout title="Hunab Ku-Vive la aventura en cada giro">
@@ -91,44 +112,28 @@ const Nahualt = [
   >
     Atracciones
   </h1>
-  <h2
-    class="text-2xl text-center px-28 text-black dark:text-white"
-  >
-    Aztecas
-  </h2>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Aztecas</h2>
   <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Aztecas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2
-    class="text-2xl text-center px-28 text-black dark:text-white"
-  >
-    Mayas
-  </h2>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Mayas</h2>
   <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Mayas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2
-    class="text-2xl text-center px-28 text-black dark:text-white"
-  >
-    Mexicas
-  </h2>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Mexicas</h2>
   <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Mexicas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2
-    class="text-2xl text-center px-28 text-black dark:text-white"
-  >
-    Tolteca
-  </h2>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Tolteca</h2>
   <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Tolteca.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2
-    class="text-2xl text-center px-28 text-black dark:text-white"
-  >
-    Nahualt
-  </h2>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Nahualt</h2>
   <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
     {Nahualt.map((atraccion) => <Atraccion {...atraccion} />)}
+  </SectionContainer>
+  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Otras Atracciones</h2>
+  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+    {Otros.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
 </Layout>
