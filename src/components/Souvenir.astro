@@ -1,0 +1,17 @@
+---
+interface Props {
+  Nombre: string;
+  Precio: string;
+}
+
+const { Nombre, Precio } = Astro.props;
+---
+
+<tr>
+  <td class="border-2 border-teal-400">
+    {Nombre}
+  </td>
+  <td class="border-2 border-teal-400">
+    {Precio}
+  </td>
+</tr>

@@ -1,0 +1,224 @@
+---
+import SectionContainer from "../components/SectionContainer.astro";
+import Souvenir from "../components/Souvenir.astro";
+import Layout from "../layouts/Layout.astro";
+
+const ComidaMexicana = [
+  {
+    Nombre: "Taco",
+    Precio: "$17",
+  },
+  {
+    Nombre: "Burrito",
+    Precio: "$60",
+  },
+  {
+    Nombre: "Enchiladas(3 la orden)",
+    Precio: "$75",
+  },
+  {
+    Nombre: "Pozole",
+    Precio: "$65",
+  },
+  {
+    Nombre: "Quesadilla",
+    Precio: "$25",
+  },
+  {
+    Nombre: "Curro relleno",
+    Precio: "$30",
+  },
+];
+const Aguas = [
+  {
+    Nombre: "Horchata(1L)",
+    Precio: "$30",
+  },
+  {
+    Nombre: "Jamaica(1L)",
+    Precio: "$30",
+  },
+  {
+    Nombre: "Limon(1L)",
+    Precio: "$30",
+  },
+];
+const ComidaRapida = [
+  {
+    Nombre: "Pizza(Familiar)",
+    Precio: "$250",
+  },
+  {
+    Nombre: "Hamburgueza",
+    Precio: "$250",
+  },
+  {
+    Nombre: "Hot Dog",
+    Precio: "$60",
+  },
+  {
+    Nombre: "Sandwich de pollo",
+    Precio: "$90",
+  },
+  {
+    Nombre: "Papas fritas",
+    Precio: "$65",
+  },
+  {
+    Nombre: "Plátanos fritos",
+    Precio: "$30",
+  },
+];
+const Refresco = [
+  {
+    Nombre: "Refresco(refill",
+    Precio: "$40",
+  },
+];
+const Snacks = [
+  {
+    Nombre: "Dulces",
+    Precio: "$10 - $60",
+  },
+  {
+    Nombre: "Helado",
+    Precio: "$35 - $100",
+  },
+  {
+    Nombre: "Nachos",
+    Precio: "$70",
+  },
+  {
+    Nombre: "Elotes",
+    Precio: "$30",
+  },
+  {
+    Nombre: "Palomitas",
+    Precio: "$30",
+  },
+];
+const SouvenirsV = [
+  {
+    Nombre: "Playeras",
+    Precio: "$250",
+  },
+  {
+    Nombre: "Sudaderas",
+    Precio: "$400",
+  },
+  {
+    Nombre: "Termos",
+    Precio: "$150",
+  },
+  {
+    Nombre: "Llaveros",
+    Precio: "$70",
+  },
+  {
+    Nombre: "Peluches",
+    Precio: "$100 - $300",
+  },
+  {
+    Nombre: "Bolsas",
+    Precio: "$150",
+  },
+  {
+    Nombre: "Gorras",
+    Precio: "$260",
+  },
+];
+---
+
+<Layout title="Hunab Ku-Souvenirs">
+  <h1
+    class="dark:text-white text-center text-3xl md:text-4xl lg:text-5xl font-bold pb-6 pt-44 px-28 lg:pb-10"
+  >
+    Comida y Souvenirs
+  </h1>
+  <SectionContainer class="grid grid-cols-1 md:grid-cols-2">
+    <SectionContainer class="pb-10 md:px-44">
+      <h2 class="text-2xl text-black dark:text-white">Comida Mexicana</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Platillo</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {ComidaMexicana.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+    <SectionContainer class="pb-10 md:px-44 justify-items-start">
+      <h2 class="text-2xl text-black dark:text-white">Bebidas</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Bebida</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {Aguas.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+    <SectionContainer class="pb-10 md:px-44">
+      <h2 class="text-2xl text-black dark:text-white">Comida Rapida</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Platillo</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {ComidaRapida.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+    <SectionContainer class="pb-10 md:px-44">
+      <h2 class="text-2xl text-black dark:text-white">Bebidas</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Bebida</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {Refresco.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+    <SectionContainer class="pb-10 md:px-44">
+      <h2 class="text-2xl text-black dark:text-white">Snacks</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Snack</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {Snacks.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+    <SectionContainer class="pb-10 md:px-44">
+      <h2 class="text-2xl text-black dark:text-white">Souvenirs</h2>
+      <table
+        class="table-fixed border-separate border-4 border-teal-400 text-white"
+      >
+        <thead>
+          <th class="border-2 border-teal-400">Souvenir</th>
+          <th class="border-2 border-teal-400">Precio</th>
+        </thead>
+        <tbody>
+          {SouvenirsV.map((Platillo) => <Souvenir {...Platillo} />)}
+        </tbody>
+      </table>
+    </SectionContainer>
+  </SectionContainer>
+</Layout>
