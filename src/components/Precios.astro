@@ -1,0 +1,54 @@
+---
+const Entradas = [
+  {
+    Nombre: "Adulto",
+    Descripcion: "Entrada general",
+    Precio: "$450",
+  },
+  {
+    Nombre: "Menor",
+    Descripcion: "Entrada General para menores de 12 años",
+    Precio: "$300",
+  },
+  {
+    Nombre: "VIP",
+    Descripcion: "Entrada con experiencia VIP",
+    Precio: "$850",
+  },
+  {
+    Nombre: "VIP Menor",
+    Descripcion: "Entrada con experiencia VIP para menores de 12 años",
+    Precio: "$650",
+  },
+  {
+    Nombre: "Membresia",
+    Descripcion:
+      "Esta podrá ser usada durante un lapso de 12 meses partiendo desde el momento que se pagó por ella, cuenta con beneficios como; visitas ilimitadas al parque temático y 15% de descuento en souvenirs y alimentos",
+    Precio: "$950",
+  },
+  {
+    Nombre: "",
+    Descripcion: "",
+    Precio: "",
+  },
+];
+---
+
+<ul class="divide-y divide-gray-200 dark:divide-gray-700">
+    {Entradas.map((entrada) => <li class="pb-3 sm:pb-4">
+        <div class="flex items-center space-x-4 rtl:space-x-reverse">
+           <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-yellow-300">
+                 {entrada.Nombre}
+              </p>
+              <p class="text-sm text-white text-pretty">
+                 {entrada.Descripcion}
+              </p>
+           </div>
+           <div class="inline-flex items-center text-base font-semibold text-rose-600">
+              {entrada.Precio}
+           </div>
+        </div>
+     </li>)}
+    
+ </ul>
