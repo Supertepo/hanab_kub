@@ -5,19 +5,54 @@ import Layout from "../layouts/Layout.astro";
 
 const Aztecas = [
   {
-    Nombre: "Mictlantecuhtli",
+    Nombre: "Mictlantecuhtli(Dios de la muerte)",
     Descripcion: "Recorrido por el infierno",
     imagen: "/Atracciones/Mictlantecuhtli.jpg",
   },
   {
-    Nombre: "Tonatiuh",
+    Nombre: "Tonatiuh(Dios del sol)",
     Descripcion: "Mirador",
     imagen: "/Atracciones/Tonatiuh.jpg",
   },
   {
-    Nombre: "Coyolxauhqui",
+    Nombre: "Coyolxauhqui(Diosa de la luna)",
     Descripcion: "Rueda de la fortuna",
     imagen: "/Atracciones/Coyolxauhqui.jpg",
+  },
+  {
+    Nombre: "Huitzilopochtli(Dios de la guerra)",
+    Descripcion: "montaña rusa rápida",
+    imagen: "/Atracciones/Huitzilopochtli.jpg",
+  },
+  {
+    Nombre: "Xipe totec(Dios Murcielago)",
+    Descripcion: "Tirolesa",
+    imagen: "/Atracciones/Xipe_Totec.jpg",
+  },
+  {
+    Nombre: "Coatlicue(Diosa de la fertilidad)",
+    Descripcion: "Canoa forma de madre",
+    imagen: "/Atracciones/Coatlicue.jpg",
+  },
+  {
+    Nombre: "Huehuecóyotl(Dios de la musica)",
+    Descripcion: "Tambores musicales",
+    imagen: "/Atracciones/Huehuecóyotl.jpg",
+  },
+  {
+    Nombre: "Quetzalcoatl(Serpiente Emplumada)",
+    Descripcion: "Montaña rusa",
+    imagen: "/Atracciones/Quetzalcoatl.jpg",
+  },
+  {
+    Nombre: "Itztlacoliuhqui(Dios de las heladas y frios)",
+    Descripcion: "Recorrido por una ciudad fria",
+    imagen: "/Atracciones/Itztlacoliuhqui.jpg",
+  },
+  {
+    Nombre: "Tláloc(Dios de la lluvia)",
+    Descripcion: "Rio con cascada",
+    imagen: "/Atracciones/Tlaloc.jpg",
   },
 ];
 const Mayas = [
@@ -42,58 +77,18 @@ const Mayas = [
     imagen: "/Atracciones/Buluc_Chabtan.jpg",
   },
 ];
-const Mexicas = [
-  {
-    Nombre: "Huitzilopochtli",
-    Descripcion: "montaña rusa rápida",
-    imagen: "/Atracciones/Huitzilopochtli.jpg",
-  },
-  {
-    Nombre: "Xipe totec",
-    Descripcion: "",
-    imagen: "/Atracciones/Xipe_Totec.jpg",
-  },
-  {
-    Nombre: "Coatlicue",
-    Descripcion: "Canoa forma de madre",
-    imagen: "/Atracciones/Coatlicue.jpg",
-  },
-  {
-    Nombre: "Huehuecóyotl",
-    Descripcion: "tipo tasas musicales",
-    imagen: "/Atracciones/Huehuecóyotl.jpg",
-  },
-];
-const Tolteca = [
-  {
-    Nombre: "Quetzalcoatl",
-    Descripcion: "Montaña tusarusa",
-    imagen: "/Atracciones/Quetzalcoatl.jpg",
-  },
-  {
-    Nombre: "Itztlacoliuhqui",
-    Descripcion: "Recorrido por una ciudad fria",
-    imagen: "/Atracciones/Itztlacoliuhqui.jpg",
-  },
-];
-const Nahualt = [
-  {
-    Nombre: "Tláloc",
-    Descripcion: "Rio con cascada",
-    imagen: "/Atracciones/Tlaloc.jpg",
-  },
-];
 const Otros = [
   {
     Nombre: "Tren",
-    Descripcion: "Tren para recorrido",
+    Descripcion: "Tren para recorrido del parque",
     imagen: "/Atracciones/Tren.jpg",
   },
   {
     Nombre: "Escenario",
     Descripcion: "Escenario para eventos varios",
     imagen: "/Atracciones/Escenario.jpg",
-  }, {
+  },
+  {
     Nombre: "Museo",
     Descripcion: "Museo sobre la cultura ",
     imagen: "/Atracciones/Museo.jpg",
@@ -108,32 +103,30 @@ const Otros = [
 
 <Layout title="Hunab Ku-Vive la aventura en cada giro">
   <h1
-    class="dark:text-white text-center text-3xl md:text-4xl lg:text-5xl font-bold pb-6 pt-44 px-28 lg:pb-10"
+    class="dark:text-white text-center text-5xl md:text-6xl font-bold pb-6 pt-44 md:px-28 lg:pb-10"
   >
     Atracciones
   </h1>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Aztecas</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+  <h2 class="text-4xl text-center font-semibold px-28 text-[#9d45b3] pb-6">
+    Aztecas
+  </h2>
+  <SectionContainer
+    class="pb-10 md:px-44 grid md:grid-cols-3 justify-items-center"
+  >
     {Aztecas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Mayas</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+  <h2 class="text-4xl text-center font-semibold px-28 text-[#9d45b3] pb-6">Mayas</h2>
+  <SectionContainer
+    class="pb-10 md:px-44 grid md:grid-cols-3 justify-items-center"
+  >
     {Mayas.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Mexicas</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
-    {Mexicas.map((atraccion) => <Atraccion {...atraccion} />)}
-  </SectionContainer>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Tolteca</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
-    {Tolteca.map((atraccion) => <Atraccion {...atraccion} />)}
-  </SectionContainer>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Nahualt</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
-    {Nahualt.map((atraccion) => <Atraccion {...atraccion} />)}
-  </SectionContainer>
-  <h2 class="text-2xl text-center px-28 text-black dark:text-white">Otras Atracciones</h2>
-  <SectionContainer class="pb-10 md:px-44 grid justify-items-center">
+  <h2 class="text-4xl text-center font-semibold px-28 text-[#9d45b3] pb-6">
+    Otras Atracciones
+  </h2>
+  <SectionContainer
+    class="pb-10 md:px-44 grid md:grid-cols-3 justify-items-center"
+  >
     {Otros.map((atraccion) => <Atraccion {...atraccion} />)}
   </SectionContainer>
 </Layout>
