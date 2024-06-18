@@ -3,19 +3,23 @@ import jsPDF from "jspdf";
 
 const TicketForm: React.FC = () => {
   const [quantityAdulto, setQuantityAdulto] = useState<number>(0);
-  const TicketAdulto: number = 450;
+  const TicketAdulto: number = 499.99;
 
   const [quantityMenor, setQuantityMenor] = useState<number>(0);
-  const TicketMenor: number = 300;
+  const TicketMenor: number = 399.99;
 
   const [quantityVIP, setQuantityVIP] = useState<number>(0);
-  const TicketVIP: number = 850;
+  const TicketVIP: number = 899.99;
 
   const [quantityVIPMenor, setQuantityVIPMenor] = useState<number>(0);
-  const TicketVIPMenor: number = 650;
+  const TicketVIPMenor: number = 699.99;
 
   const [quantityMembresia, setQuantityMembresia] = useState<number>(0);
-  const Membresia: number = 950;
+  const Membresia: number = 999.99;
+
+  const [quantityMembresiaAlimentos, setQuantityMembresiaAlimentos] =
+    useState<number>(0);
+  const MembresiaAlimentos: number = 1299.99;
 
   const [fecha, setFecha] = useState<string>("");
 
@@ -40,13 +44,33 @@ const TicketForm: React.FC = () => {
   ) => {
     setQuantity(Math.max(quantity - 1, 0));
   };
+  const totalAdulto: number = parseFloat(
+    (quantityAdulto * TicketAdulto).toFixed(2)
+  );
+  const totalMenor: number = parseFloat(
+    (quantityMenor * TicketMenor).toFixed(2)
+  );
+  const totalVIP: number = parseFloat((quantityVIP * TicketVIP).toFixed(2));
+  const totalVIPMenor: number = parseFloat(
+    (quantityVIPMenor * TicketVIPMenor).toFixed(2)
+  );
+  const totalMembresia: number = parseFloat(
+    (quantityMembresia * Membresia).toFixed(2)
+  );
+  const totalMembresiaAlimentos: number = parseFloat(
+    (quantityMembresiaAlimentos * MembresiaAlimentos).toFixed(2)
+  );
 
-  const totalAmount: number =
-    quantityAdulto * TicketAdulto +
-    quantityMenor * TicketMenor +
-    quantityVIP * TicketVIP +
-    quantityVIPMenor * TicketVIPMenor +
-    quantityMembresia * Membresia;
+  const totalAmount: number = parseFloat(
+    (
+      totalAdulto +
+      totalMenor +
+      totalVIP +
+      totalVIPMenor +
+      totalMembresia +
+      totalMembresiaAlimentos
+    ).toFixed(2)
+  );
 
   const handleConfirmPurchase = () => {
     if (!fecha) {
@@ -58,22 +82,32 @@ const TicketForm: React.FC = () => {
     doc.text("Reservacion", 20, 10);
     doc.setFont("times", "italic");
     doc.text(`Fecha de reservacion: ${fecha}`, 20, 20);
+    doc.text("Cantidad", 20, 30);
     if (quantityAdulto !== 0) {
-      doc.text(`Cantidad de boletos de adulto: ${quantityAdulto}`, 20, 30);
+      doc.text(`${quantityAdulto} Boletos de adulto`, 20, 40);
+      doc.text(`${totalAdulto}`, 150, 40);
     }
     if (quantityMenor !== 0) {
-      doc.text(`Cantidad de boletos de menor: ${quantityMenor}`, 20, 40);
+      doc.text(`${quantityMenor} Boletos de menor`, 20, 50);
+      doc.text(`${totalMenor}`, 150, 50);
     }
     if (quantityVIP !== 0) {
-      doc.text(`Cantidad de boletos VIP: ${quantityVIP}`, 20, 50);
+      doc.text(`${quantityVIP} Boletos VIP`, 20, 60);
+      doc.text(`${totalVIP}`, 150, 60);
     }
     if (quantityVIPMenor !== 0) {
-      doc.text(`Cantidad de boletos VIP Menor: ${quantityVIPMenor}`, 20, 60);
+      doc.text(`${quantityVIPMenor} Boletos VIP Menor`, 20, 70);
+      doc.text(`${totalVIPMenor}`, 150, 70);
     }
     if (quantityMembresia !== 0) {
-      doc.text(`Cantidad de membresias: ${quantityMembresia}`, 20, 70);
+      doc.text(`${quantityMembresia} Membresias`, 20, 80);
+      doc.text(`${totalMembresia}`, 150, 80);
     }
-    doc.text(`Total: $${totalAmount}`, 150, 80);
+    if (quantityMembresia !== 0) {
+      doc.text(`${quantityMembresiaAlimentos} Membresias de alimentos`, 20, 90);
+      doc.text(`${totalMembresiaAlimentos}`, 150, 90);
+    }
+    doc.text(`Total: $${totalAmount}`, 130, 100);
     doc.save("compra.pdf");
     alert("Reservacion confirmada. Generando PDF...");
   };
@@ -336,7 +370,7 @@ const TicketForm: React.FC = () => {
             </button>
           </div>
         </div>
-        {/* Membresia */}
+        {/* Membresia alimentos*/}
         <div className="dark:bg-black/20 rounded-lg p-4">
           <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
             Membresia
@@ -375,6 +409,73 @@ const TicketForm: React.FC = () => {
             <button
               onClick={() =>
                 incrementQuantity(quantityMembresia, setQuantityMembresia)
+              }
+              className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 18"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 1v16M1 9h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div className="dark:bg-black/20 rounded-lg p-4">
+          <p className="block mb-2 text-sm font-medium text-gray-900 dark:text-gary-900">
+            Membresia de alimentos
+          </p>
+          <div className="relative flex items-center">
+            <button
+              onClick={() =>
+                decrementQuantity(
+                  quantityMembresiaAlimentos,
+                  setQuantityMembresiaAlimentos
+                )
+              }
+              className="rounded-s-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
+            >
+              <svg
+                className="w-3 h-3 text-gray-900 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 18 2"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 1h16"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              min="0"
+              max="8"
+              value={quantityMembresiaAlimentos}
+              onChange={(e) =>
+                handleQuantityChange(e, setQuantityMembresiaAlimentos)
+              }
+              className=" border-x-0 h-11 text-center w-full py-2.5 text-gray-900 text-sm block dark:bg-teal-700 dark:text-white"
+            />
+            <button
+              onClick={() =>
+                incrementQuantity(
+                  quantityMembresiaAlimentos,
+                  setQuantityMembresiaAlimentos
+                )
               }
               className="rounded-e-lg p-3 h-11 focus:ring-2 focus:outline-none dark:bg-teal-700 dark:border-gray-600"
             >
