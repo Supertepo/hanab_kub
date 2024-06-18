@@ -135,9 +135,9 @@ const SouvenirsV = [
   >
     Comida y Souvenirs
   </h1>
-  <SectionContainer class="grid grid-cols-1 md:grid-cols-2">
-    <SectionContainer class="pb-10 px-20 md:px-44" >
-      <h2 class="text-2xl text-black dark:text-white">Comida Mexicana</h2>
+  <SectionContainer class="grid grid-cols-1 md:grid-cols-2 place-items-center	">
+    <div class="pb-10" >
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Comida Mexicana</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -149,9 +149,9 @@ const SouvenirsV = [
           {ComidaMexicana.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
-    <SectionContainer class="pb-10 px-20 md:px-44 justify-items-start">
-      <h2 class="text-2xl text-black dark:text-white">Bebidas</h2>
+    </div>
+    <div class="pb-10">
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Bebidas</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -163,9 +163,9 @@ const SouvenirsV = [
           {Aguas.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
-    <SectionContainer class="pb-10 px-20 md:px-44">
-      <h2 class="text-2xl text-black dark:text-white">Comida Rapida</h2>
+    </div>
+    <div class="pb-10">
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Comida Rapida</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -177,9 +177,9 @@ const SouvenirsV = [
           {ComidaRapida.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
-    <SectionContainer class="pb-10 px-20 md:px-44">
-      <h2 class="text-2xl text-black dark:text-white">Bebidas</h2>
+    </div>
+    <div class="pb-10">
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Bebidas</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -191,9 +191,9 @@ const SouvenirsV = [
           {Refresco.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
-    <SectionContainer class="pb-10 px-20 md:px-44">
-      <h2 class="text-2xl text-black dark:text-white">Snacks</h2>
+    </div>
+    <div class="pb-10">
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Snacks</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -205,9 +205,9 @@ const SouvenirsV = [
           {Snacks.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
-    <SectionContainer class="pb-10 px-20 md:px-44">
-      <h2 class="text-2xl text-black dark:text-white">Souvenirs</h2>
+    </div>
+    <div class="pb-10">
+      <h2 class="text-2xl text-center mb-4 text-black dark:text-white">Souvenirs</h2>
       <table
         class="table-fixed border-separate border-4 border-blue-400 text-white"
       >
@@ -219,6 +219,6 @@ const SouvenirsV = [
           {SouvenirsV.map((Platillo) => <Souvenir {...Platillo} />)}
         </tbody>
       </table>
-    </SectionContainer>
+    </div>
   </SectionContainer>
 </Layout>
